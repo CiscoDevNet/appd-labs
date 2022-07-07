@@ -24,6 +24,12 @@ variable "environment" {
   default = "dev"
 }
 
+# VM Size used by cluster
+variable "vm_size" {
+  type = string
+  description = "The vm size used by cluster"
+  default = "standard_a4_v2"
+}
 
 # AKS Input Variables
 

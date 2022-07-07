@@ -31,12 +31,12 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
 
   default_node_pool {
     name                 = "systempool"
-    vm_size              = "standard_a4_v2"
+    vm_size              = "${var.vm_size}"
     orchestrator_version = data.azurerm_kubernetes_service_versions.current.latest_version
     availability_zones   = [1, 2, 3]
     enable_auto_scaling  = true
     max_count            = 4
-    min_count            = 2
+    min_count            = 4
     os_disk_size_gb      = 30
     type                 = "VirtualMachineScaleSets"
     node_labels = {
