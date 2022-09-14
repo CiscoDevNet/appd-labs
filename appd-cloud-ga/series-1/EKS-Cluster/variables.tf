@@ -3,12 +3,6 @@ variable "cluster-name" {
   type    = string
 }
 
-variable "profile" {
-  description = "AWS profile"
-  type        = string
-  default     = "default"
-}
-
 variable "region" {
   description = "AWS region to deploy to"
   default     = "us-west-1"
