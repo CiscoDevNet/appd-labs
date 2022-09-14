@@ -1,5 +1,5 @@
 variable "cluster-name" {
-  default = "lab-cluster-<user id>"
+  default = "lab-cluster"
   type    = string
 }
 
