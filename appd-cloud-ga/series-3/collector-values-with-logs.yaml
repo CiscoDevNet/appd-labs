@@ -1,8 +1,8 @@
 appdynamics-cloud-k8s-monitoring:
   install:
     logCollector: true
+  clusterName: "<cluster-name>"
   clustermonConfig:
-    clusterName: <cluster-name>
     events:
       enabled: true
       severityToExclude: []
@@ -21,12 +21,8 @@ appdynamics-cloud-k8s-monitoring:
               pattern: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg trace_id=%X{trace_id} span_id=%X{span_id} trace_flags=%X{trace_flags} %n"
           multiLinePattern: '^2022' # default is after
           multiLineNegate: true # default is false
-      clusterName: <cluster-name>
       dropFields: ["agent", "stream", "ecs", "input", "orchestrator", "k8s.annotations.appdynamics", "k8s.labels", "k8s.node.labels", "cloud"]
       batchSize: 1000
-      loggingLevel: info
-      loggingSelectors: [ "otlp" ]
- 
 appdynamics-otel-collector:
   clientId: <clientId>
   clientSecret: <clientSecret>
