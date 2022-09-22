@@ -14,7 +14,7 @@ appdynamics-cloud-k8s-monitoring:
         - condition:
             operator: contains
             key: kubernetes.pod.name
-            value: adservice
+            value: ad-service
           messageParser:
             log4J:
               enabled: true
