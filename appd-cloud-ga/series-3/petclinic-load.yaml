@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: petclinic-load
+data:
+  load.sh: |
+    while ((1)); 
+    do 
+      sleep 1 
+      curl -n petclinic:8080/oups
+      sleep 1
+      curl -n petclinic:8080/owners/find
+      sleep 1
+      curl -n petclinic:8080/vets.html
+    done
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: petclinic-load
+  name: petclinic-load
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: petclinic-load
+  strategy: {}
+  template:
+    metadata:    
+      creationTimestamp: null
+      labels:
+        app: petclinic-load
+    spec:
+      containers:
+        - image: nginx
+          name: petclinic-load
+          imagePullPolicy: Always
+          command:
+            - /bin/bash
+            - -c
+            - /tmp/load.sh
+          volumeMounts:
+            - name: mnt
+              mountPath: /tmp          
+      volumes:
+        - name: mnt
+          configMap:
+            name: petclinic-load
+            defaultMode: 0777
+
