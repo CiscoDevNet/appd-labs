@@ -62,7 +62,7 @@ resource "null_resource" "local_k8s_context" {
   depends_on = [time_sleep.wait_for_kube]
   provisioner "local-exec" {
     # Update your local eks and kubectl credentials for the newly created cluster
-    command = "export AWS_DEFAULT_PROFILE=${var.profile}; for i in 1 2 3 4 5; do aws eks --region ${var.region}  update-kubeconfig --name ${aws_eks_cluster.aws_eks.name} && break || sleep 60; done"    
+    command = "for i in 1 2 3 4 5; do aws eks --region ${var.region}  update-kubeconfig --name ${aws_eks_cluster.aws_eks.name} && break || sleep 60; done"    
   }
 }
 

@@ -1,12 +1,6 @@
 variable "cluster-name" {
-  default = "lab-cluster-<user id>"
+  default = "lab-cluster"
   type    = string
-}
-
-variable "profile" {
-  description = "AWS profile"
-  type        = string
-  default     = "default"
 }
 
 variable "region" {

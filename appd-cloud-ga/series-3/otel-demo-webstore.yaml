@@ -1,0 +1,1292 @@
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-ad-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: ad-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: ad-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-cart-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: cart-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: cart-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-checkout-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: checkout-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: checkout-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-currency-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: currency-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: currency-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-email-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: email-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: email-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-featureflag-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: featureflag-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 50052
+      name: grpc
+      targetPort: 50052
+    - port: 50053
+      name: http
+      targetPort: 50053
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: featureflag-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-ffs-postgres
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: ffs-postgres
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 5432
+      name: postgres
+      targetPort: 5432
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: ffs-postgres
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-frontend
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: frontend
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-payment-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: payment-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: payment-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-product-catalog-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: product-catalog-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: product-catalog-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-recommendation-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: recommendation-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: recommendation-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-redis
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: redis
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 6379
+      name: redis
+      targetPort: 6379
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: redis
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: opentelemetry-demo-shipping-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: shipping-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  ports:
+    - port: 8080
+      name: service
+      targetPort: 8080
+  selector:
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: shipping-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-ad-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: ad-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: ad-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: ad-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: ad-service
+          image: otel/demo:v0.2.0-alpha-adservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: AD_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # ad-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-cart-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: cart-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: cart-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: cart-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: cart-service
+          image: otel/demo:v0.2.0-alpha-cartservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: ASPNETCORE_URLS
+            value: http://*:8080
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: CART_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # cart-service
+          - name: REDIS_ADDR
+            value: opentelemetry-demo-redis:6379
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && ./cartservice'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-checkout-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: checkout-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: checkout-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: checkout-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: checkout-service
+          image: otel/demo:v0.2.0-alpha-checkoutservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: CHECKOUT_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # checkout-service
+          - name: CART_SERVICE_ADDR
+            value: opentelemetry-demo-cart-service:8080
+          - name: CURRENCY_SERVICE_ADDR
+            value: opentelemetry-demo-currency-service:8080
+          - name: EMAIL_SERVICE_ADDR
+            value: opentelemetry-demo-email-service:8080
+          - name: PAYMENT_SERVICE_ADDR
+            value: opentelemetry-demo-payment-service:8080
+          - name: PRODUCT_CATALOG_SERVICE_ADDR
+            value: opentelemetry-demo-product-catalog-service:8080
+          - name: SHIPPING_SERVICE_ADDR
+            value: opentelemetry-demo-shipping-service:8080
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && ./checkoutservice'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-currency-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: currency-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: currency-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: currency-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: currency-service
+          image: otel/demo:v0.2.0-alpha-currencyservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: PORT
+            value: "8080"
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: CURRENCY_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # currency-service
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && node --require ./tracing.js ./server.js'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-email-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: email-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: email-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: email-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: email-service
+          image: otel/demo:v0.2.0-alpha-emailservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: APP_ENV
+            value: production
+          - name: PORT
+            value: "8080"
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: EMAIL_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # email-service
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && bundle exec ruby email_server.rb'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-featureflag-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: featureflag-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: featureflag-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: featureflag-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: featureflag-service
+          image: otel/demo:v0.2.0-alpha-featureflagservice
+          ports:
+          
+          - containerPort: 50052
+            name: grpc
+          - containerPort: 50053
+            name: http
+          env:
+          
+          - name: DATABASE_URL
+            value: ecto://ffs:ffs@ffs-postgres:5432/ffs
+          - name: GRPC_PORT
+            value: "50053"
+          - name: PORT
+            value: "50052"
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # featureflag-service
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && /app/bin/server'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-ffs-postgres
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: ffs-postgres
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: ffs-postgres
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: ffs-postgres
+      annotations:
+        
+    spec:
+      containers:
+        - name: ffs-postgres
+          image: cimg/postgres:14.2
+          ports:
+          
+          - containerPort: 5432
+            name: postgres
+          env:
+          
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: POSTGRES_DB
+            value: ffs
+          - name: POSTGRES_PASSWORD
+            value: ffs
+          - name: POSTGRES_USER
+            value: ffs
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # ffs-postgres
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && docker-entrypoint.sh postgres'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-frontend
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: frontend
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: frontend
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: frontend
+      annotations:
+        
+    spec:
+      containers:
+        - name: frontend
+          image: otel/demo:v0.2.0-alpha-frontend
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: FRONTEND_ADDR
+            value: :8080
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: FRONTEND_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # frontend
+          - name: AD_SERVICE_ADDR
+            value: opentelemetry-demo-ad-service:8080
+          - name: CART_SERVICE_ADDR
+            value: opentelemetry-demo-cart-service:8080
+          - name: CHECKOUT_SERVICE_ADDR
+            value: opentelemetry-demo-checkout-service:8080
+          - name: CURRENCY_SERVICE_ADDR
+            value: opentelemetry-demo-currency-service:8080
+          - name: PRODUCT_CATALOG_SERVICE_ADDR
+            value: opentelemetry-demo-product-catalog-service:8080
+          - name: RECOMMENDATION_SERVICE_ADDR
+            value: opentelemetry-demo-recommendation-service:8080
+          - name: SHIPPING_SERVICE_ADDR
+            value: opentelemetry-demo-shipping-service:8080
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && ./frontend'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-loadgenerator
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: loadgenerator
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: loadgenerator
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: loadgenerator
+      annotations:
+        
+    spec:
+      containers:
+        - name: loadgenerator
+          image: otel/demo:v0.2.0-alpha-loadgenerator
+          env:
+          
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: USERS
+            value: "10"
+          - name: PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION
+            value: python
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # loadgenerator
+          - name: FRONTEND_ADDR
+            value: opentelemetry-demo-frontend:8080
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && locust --host=http://$FRONTEND_ADDR --headless -u $USERS'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-payment-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: payment-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: payment-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: payment-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: payment-service
+          image: otel/demo:v0.2.0-alpha-paymentservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: PAYMENT_SERVICE_PORT
+            value: "8080"
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && node --require ./tracing.js ./index.js']
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # payment-service
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-product-catalog-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: product-catalog-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: product-catalog-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: product-catalog-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: product-catalog-service
+          image: otel/demo:v0.2.0-alpha-productcatalogservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: PRODUCT_CATALOG_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # product-catalog-service
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && ./productcatalogservice']
+
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-recommendation-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: recommendation-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: recommendation-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: recommendation-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: recommendation-service
+          image: otel/demo:v0.2.0-alpha-recommendationservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_PYTHON_LOG_CORRELATION
+            value: "true"
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: RECOMMENDATION_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # recommendation-service
+          - name: PRODUCT_CATALOG_SERVICE_ADDR
+            value: opentelemetry-demo-product-catalog-service:8080
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && opentelemetry-instrument python recommendation_server.py']
+
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-redis
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: redis
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: redis
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: redis
+      annotations:
+        
+    spec:
+      containers:
+        - name: redis
+          image: redis:alpine
+          ports:
+          
+          - containerPort: 6379
+            name: redis
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # redis
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && docker-entrypoint.sh redis-server'] 
+---
+# Source: opentelemetry-demo/templates/component.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opentelemetry-demo-shipping-service
+  labels:
+    helm.sh/chart: opentelemetry-demo-0.1.4
+    app.kubernetes.io/name: opentelemetry-demo
+    app.kubernetes.io/instance: opentelemetry-demo
+    app.kubernetes.io/component: shipping-service
+    app.kubernetes.io/version: "0.2.0-alpha"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: opentelemetry-demo
+      app.kubernetes.io/instance: opentelemetry-demo
+      app.kubernetes.io/component: shipping-service
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: opentelemetry-demo
+        app.kubernetes.io/instance: opentelemetry-demo
+        app.kubernetes.io/component: shipping-service
+      annotations:
+        
+    spec:
+      containers:
+        - name: shipping-service
+          image: otel/demo:v0.2.0-alpha-shippingservice
+          ports:
+          
+          - containerPort: 8080
+            name: service
+          env:
+          
+          - name: OTEL_SERVICE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.labels['app.kubernetes.io/component']
+          - name: PORT
+            value: "8080"
+          - name: OTEL_K8S_NAMESPACE
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.namespace
+          - name: OTEL_K8S_NODE_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: spec.nodeName
+          - name: OTEL_K8S_POD_NAME
+            valueFrom:
+              fieldRef:
+                apiVersion: v1
+                fieldPath: metadata.name
+          - name: OTEL_RESOURCE_ATTRIBUTES
+            value: service.name=$(OTEL_SERVICE_NAME),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317
+          - name: SHIPPING_SERVICE_PORT
+            value: "8080"
+          
+          # map[cart-service:[redis] checkout-service:[cart-service currency-service email-service payment-service product-catalog-service shipping-service] frontend:[ad-service cart-service checkout-service currency-service product-catalog-service recommendation-service shipping-service] loadgenerator:[frontend] recommendation-service:[product-catalog-service]]
+          # shipping-service
+          command: ["/bin/sh"]
+          args: ['-c', 'OTEL_RESOURCE_ATTRIBUTES=$OTEL_RESOURCE_ATTRIBUTES,container.id=$(sed -rn "s/^1:.+:\/.+\/(.+)$/\1/p" /proc/self/cgroup) && /src/shippingservice']
