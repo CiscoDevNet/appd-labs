@@ -22,8 +22,13 @@ resource "google_compute_router_nat" "nat" {
   nat_ip_allocate_option             = "AUTO_ONLY"
   source_subnetwork_ip_ranges_to_nat = "ALL_SUBNETWORKS_ALL_IP_RANGES"
 }
-
+# To address the following error when creating OTel operator:
+# failed to create resource: Internal error occurred: failed calling webhook 
+# "mopentelemetrycollector.kb.io": failed to call webhook: 
+# Post "https://cnao-operators-opentelemetry-operator-webhook.cnao.svc:443/mutate-opentelemetry-io-v1alpha1-opentelemetrycollector?timeout=10s": context deadline exceeded
 resource "google_compute_firewall" "gke-opentelemetry-webhook" {
+  depends_on = [time_sleep.wait_for_kube]
+
   project     = var.project_id
   name        = "gke-opentelemetry-webhook-rule"
   network     = "k8s-network"
