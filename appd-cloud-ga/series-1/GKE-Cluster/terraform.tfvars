@@ -1,4 +1,4 @@
-project_id  = "gcp-gcpk8s-nprd-58784"
+project_id  = "gcp-gcpk8s-nprd-00000"
 # Pick a region with low spot VM prices. us-west4 is currently the cheapest.
 # Not all regions will work, some don't support STANDARD network tier.
 # https://cloud.google.com/compute/vm-instance-pricing
