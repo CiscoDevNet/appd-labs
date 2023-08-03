@@ -1,0 +1,21 @@
+opentelemetry-collector:
+  config:
+    exporters:
+      otlp/cnao:
+        endpoint: "appdynamics-otel-collector-service.cnao.svc.cluster.local:4317"
+        tls:
+          insecure: true
+    service:
+      pipelines:
+        logs:
+          receivers: [otlp]
+          processors: [memory_limiter, batch]
+          exporters: [logging, otlp/cnao]
+        traces:
+          receivers: [otlp]
+          processors: [memory_limiter, batch]
+          exporters: [otlp, logging, spanmetrics, otlp/cnao]
+        metrics:
+          receivers: [otlp, spanmetrics]
+          processors: [memory_limiter, filter/ottl, transform, batch]
+          exporters: [prometheus, logging, otlp/cnao]
