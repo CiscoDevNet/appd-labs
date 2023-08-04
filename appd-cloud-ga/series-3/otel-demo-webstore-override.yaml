@@ -2,7 +2,7 @@ opentelemetry-collector:
   config:
     exporters:
       otlp/cnao:
-        endpoint: "appdynamics-otel-collector-service.cnao.svc.cluster.local:4317"
+        endpoint: "appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317"
         tls:
           insecure: true
     service:
