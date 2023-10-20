@@ -8,11 +8,6 @@ opentelemetry-collector:
         endpoint: "appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317"
         tls:
           insecure: true
-      # to fix a bug in 0.25.4 version of charts
-      otlphttp/prometheus:
-        endpoint: http://{{ include "otel-demo.name" . }}-prometheus-server:9090/api/v1/otlp
-        tls:
-          insecure: true
     processors:
       k8sattributes:
         extract:
