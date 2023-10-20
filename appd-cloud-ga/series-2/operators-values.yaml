@@ -1,0 +1,10 @@
+global:
+  clusterName: terraform-aks-dev-cluster
+fso-agent-mgmt-client:
+  solution:
+    endpoint: https://lab1.observe.appdynamics.com
+  oauth:
+    clientId: xxxxxxxxxxxxxxxxxxx
+    clientSecret: xxxxxxxxxxxxxxxxxxxxxxx
+    tokenUrl: https://lab1.observe.appdynamics.com/auth/dfdbdf71-7322-44d0-85fb-36c69a7c3789/default/oauth2/token
+    tenantId: dfdbdf71-7322-44d0-85fb-36c69a7c3789

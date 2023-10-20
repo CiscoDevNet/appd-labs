@@ -1,0 +1,170 @@
+global:
+  clusterName: terraform-aks-dev-cluster
+appdynamics-otel-collector:
+  clientId: xxxxxxxxxxxxxxxxxxx
+  clientSecret: xxxxxxxxxxxxxxxxxxx
+  endpoint: https://lab1.observe.appdynamics.com/data
+  tokenUrl: https://lab1.observe.appdynamics.com/auth/dfdbdf71-7322-44d0-85fb-36c69a7c3789/default/oauth2/token
+  configOverride:
+    exporters:
+      logging:
+        #loglevel: debug	# loglevel is deprecated use verbosity instead
+        verbosity: detailed
+    service:
+      pipelines:
+        logs:
+          receivers:
+            - otlp
+          exporters:
+            - otlphttp
+            - logging
+  enableFileLog: false
+  enablePrometheus: false
+  spec:
+    replicas: 1
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1024Mi
+      requests:
+        cpu: 500m
+        memory: 200Mi
+appdynamics-cloud-k8s-monitoring:
+  install:
+    logCollector: false
+  clustermonConfig:
+    events:
+      enabled: true
+      severityToExclude: []
+      reasonToExclude: []
+      severeGroupByReason: []
+  logCollectorConfig:
+    container:
+      logging:
+        level: info
+      defaultConfig:
+        multiLineMatch: after
+        multiLineNegate: true
+        multiLinePattern: ^\d{4}-\d{2}-\d{2}
+        messageParser:
+          grok:
+            enabled: true
+            patterns:
+              - "%{TIMESTAMP_ISO8601:timestamp}\\s+%{LOGLEVEL:loglevel}\\s+%{DATA:source}\\s+%{GREEDYDATA:message}"
+              - "%{DATESTAMP:time} %{LOGLEVEL:severity} %{WORD:class}:%{NUMBER:line} - %{GREEDYDATA:data}"
+              - "%{DATESTAMP_RFC2822:time} %{LOGLEVEL:severity} %{GREEDYDATA:data}"
+              - '%{TOMCAT_DATESTAMP:time} \| %{LOGLEVEL:level} \| %{JAVACLASS:class} - %{JAVALOGMESSAGE:logmessage}'
+              - "%{IP:clientIP} %{WORD:httpMethod} %{URIPATH:url}"
+          json:
+            enabled: true
+      conditions:
+        - condition:
+            operator: contains
+            key: kubernetes.pod.name
+            value: adservice
+          messageParser:
+            log4J:
+              enabled: true
+              pattern: "%d{yyyy-MM-dd HH:mm:ss} - %logger{36} - %msg trace_id=%X{trace_id} span_id=%X{span_id} trace_flags=%X{trace_flags} %n"
+          multiLinePattern: ^\d{4}-\d{2}-\d{2} # default is after
+          multiLineNegate: true # default is false
+          multiLineMatch: after
+      dropFields:
+        [
+          "agent",
+          "stream",
+          "ecs",
+          "input",
+          "orchestrator",
+          "k8s.annotations.appdynamics",
+          "k8s.labels",
+          "k8s.node.labels",
+          "cloud",
+        ]
+      batchSize: 1000
+      maxBytes: 1000000
+  #Daemonset specific configs
+  clustermonPod:
+    resources:
+      limits:
+        cpu: 200m
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
+  inframonPod:
+    resources:
+      limits:
+        cpu: 200m
+        memory: 256Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
+  logCollectorPod:
+    resources:
+      limits:
+        cpu: 800m
+        memory: 512Mi
+      requests:
+        cpu: 200m
+        memory: 150Mi
+
+appdynamics-security-collector:
+  # enable if AKS or EKS
+  enabled: false
+  panoptica:
+    controller:
+      agentID: xxxxxxxxxxxxxxxxxxx
+      secret:
+        sharedSecret: xxxxxxxxxxxxxxxxxxx
+
+appdynamics-cloud-db-collector:
+  install:
+    dbCollector: false
+    dbMonitoringConfigs: false
+  appdCloudAuth:
+    clientId: xxxxxxxxxxxxxx # use --set command line argument or a separate yaml file
+    clientSecret: xxxxxxxxxxxxxx # use --set command line argument or a separate yaml file
+    endpoint: https://lab1.observe.appdynamics.com/data
+    tokenUrl: https://lab1.observe.appdynamics.com/auth/dfdbdf71-7322-44d0-85fb-36c69a7c3789/default/oauth2/token
+
+  # dbCollector Configs
+  dbCollectorConfig:
+    logLevel: info
+
+  # Each Object in the list will create a custom resource of dbconfig type
+  dbMonitoringConfigs:
+    # - dbType: mysql
+    #   configName: ad-ecommerce-mysql
+    #   hostname: mysqldb.charleli-ad-ecommerce.svc.cluster.local
+    #   hostport: 3306
+    #   username: root
+    # password: use --set command line argument or a separate yaml file
+
+    # Uncomment the following field to specify the name of the secret containing the password instead of specifying the password in the above field
+    # passwordSecretName: <secret-name>
+
+    # Uncomment below field to specify the DbCollector this config needs to be assigned to
+    # Defaults to collector of current release <release-name>-appdynamics-db-collector and <release-namespace>
+    # dbCollector:
+    #   name: <parent-collector-name>
+    #   namespace: <parent-collector-namespace>
+
+    # Uncomment below field to specify environment (defaults to self-hosted)
+    # environment:
+    #   platform: self-hosted # Other possible properties "AWS", "Azure"
+
+    # Uncomment below field to monitor specific schema/view
+    # database: <database-name>
+    # Uncomment below fields to use TLS connection
+    # tlsConfig:
+    #   hostNameInCertificate: <hostname>
+    #   certSecretName: <secret-name>
+
+    # Uncomment below section to monitor more database(s)
+    # - dbType: <database-type>
+    #   configName : <config-name>
+    #   hostname: <hostname>
+    #   hostport: <port>
+    #   username: <user-name>
+    #   password: <password>
