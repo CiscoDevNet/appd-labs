@@ -1,27 +1,61 @@
 opentelemetry-collector:
+  mode: daemonset
   config:
     exporters:
+      debug:
+        verbosity: detailed
       otlp/cnao:
         endpoint: "appdynamics-otel-collector-service.appdynamics.svc.cluster.local:4317"
         tls:
           insecure: true
+      # to fix a bug in 0.25.4 version of charts
+      otlphttp/prometheus:
+        endpoint: http://{{ include "otel-demo.name" . }}-prometheus-server:9090/api/v1/otlp
+        tls:
+          insecure: true
+    processors:
+      k8sattributes:
+        extract:
+          metadata:
+            - k8s.namespace.name
+            - k8s.deployment.name
+            - k8s.statefulset.name
+            - k8s.daemonset.name
+            - k8s.cronjob.name
+            - k8s.job.name
+            - k8s.node.name
+            - k8s.pod.name
+            - k8s.pod.uid
+            - k8s.pod.start_time
+            - container.id
+      resource:
+        attributes:
+          - action: insert
+            from_attribute: k8s.pod.uid
+            key: service.instance.id
+          - action: insert
+            from_attribute: container.id
+            key: container.id
     service:
       pipelines:
         logs:
-          exporters: 
+          exporters:
             - otlp/cnao
-            - debug
+            # - debug
         traces:
-          exporters: 
+          exporters:
             - otlp/cnao
-            - debug
+            # - debug
             - otlp
             - spanmetrics
         metrics:
-          exporters: 
+          exporters:
             - otlp/cnao
-            - debug
+            # - debug
             - otlphttp/prometheus
+  resources:
+    limits:
+      memory: 500Mi
 default:
   # Allows overriding and additions to .Values.default.env
   envOverrides:
@@ -45,5 +79,13 @@ default:
         fieldRef:
           apiVersion: v1
           fieldPath: metadata.uid
+    - name: OTEL_COLLECTOR_NAME
+      # cannot use value:, maybe the env is not set
+      # value: $(OTEL_K8S_NODE_NAME)
+      # the following works for daemonset mode
+      valueFrom:
+        fieldRef:
+          apiVersion: v1
+          fieldPath: spec.nodeName
     - name: OTEL_RESOURCE_ATTRIBUTES
       value: service.name=$(OTEL_SERVICE_NAME),service.instance.id=$(OTEL_K8S_POD_UID),service.namespace=$(OTEL_K8S_NAMESPACE),k8s.namespace.name=$(OTEL_K8S_NAMESPACE),k8s.node.name=$(OTEL_K8S_NODE_NAME),k8s.pod.name=$(OTEL_K8S_POD_NAME)
