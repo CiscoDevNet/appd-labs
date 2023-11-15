@@ -1,6 +1,6 @@
 global:
   clusterName: terraform-aks-dev-cluster
-fso-agent-mgmt-client:
+appdynamics-smartagent:
   solution:
     endpoint: https://lab1.observe.appdynamics.com
   oauth:
